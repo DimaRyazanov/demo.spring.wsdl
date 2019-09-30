@@ -5,5 +5,5 @@
 // Generated on: 2019.09.30 at 07:11:51 PM MSK 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://com.example/services/countries", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package example.com.services.countries;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://com.example/services/books", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package example.com.services.books;

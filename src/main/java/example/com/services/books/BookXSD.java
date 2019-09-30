@@ -6,7 +6,7 @@
 //
 
 
-package example.com.services.countries;
+package example.com.services.books;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,19 +15,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for country complex type.
+ * <p>Java class for bookXSD complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="country">
+ * &lt;complexType name="bookXSD">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="bookId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="population" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="capital" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="currency" type="{http://com.example/services/countries}currency"/>
+ *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,21 +37,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "country", propOrder = {
+@XmlType(name = "bookXSD", propOrder = {
+    "bookId",
     "name",
-    "population",
-    "capital",
-    "currency"
+    "title",
+    "price"
 })
-public class Country {
+public class BookXSD {
 
+    protected int bookId;
     @XmlElement(required = true)
     protected String name;
-    protected int population;
     @XmlElement(required = true)
-    protected String capital;
-    @XmlElement(required = true)
-    protected Currency currency;
+    protected String title;
+    protected double price;
+
+    /**
+     * Gets the value of the bookId property.
+     * 
+     */
+    public int getBookId() {
+        return bookId;
+    }
+
+    /**
+     * Sets the value of the bookId property.
+     * 
+     */
+    public void setBookId(int value) {
+        this.bookId = value;
+    }
 
     /**
      * Gets the value of the name property.
@@ -78,67 +93,43 @@ public class Country {
     }
 
     /**
-     * Gets the value of the population property.
-     * 
-     */
-    public int getPopulation() {
-        return population;
-    }
-
-    /**
-     * Sets the value of the population property.
-     * 
-     */
-    public void setPopulation(int value) {
-        this.population = value;
-    }
-
-    /**
-     * Gets the value of the capital property.
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCapital() {
-        return capital;
+    public String getTitle() {
+        return title;
     }
 
     /**
-     * Sets the value of the capital property.
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCapital(String value) {
-        this.capital = value;
+    public void setTitle(String value) {
+        this.title = value;
     }
 
     /**
-     * Gets the value of the currency property.
+     * Gets the value of the price property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Currency }
-     *     
      */
-    public Currency getCurrency() {
-        return currency;
+    public double getPrice() {
+        return price;
     }
 
     /**
-     * Sets the value of the currency property.
+     * Sets the value of the price property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Currency }
-     *     
      */
-    public void setCurrency(Currency value) {
-        this.currency = value;
+    public void setPrice(double value) {
+        this.price = value;
     }
 
 }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://com.example/services/books" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com.example/services/books" targetNamespace="http://com.example/services/books">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://com.example/services/books">
+
+    <xs:element name="getBookByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:bookXSD"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="title" type="xs:string"/>
+                <xs:element name="price" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:bookXSD"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="bookXSD">
+        <xs:sequence>
+            <xs:element name="bookId" type="xs:int"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="price" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addBookResponse">
+    <wsdl:part element="tns:addBookResponse" name="addBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookByIdRequest">
+    <wsdl:part element="tns:getBookByIdRequest" name="getBookByIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookByIdResponse">
+    <wsdl:part element="tns:getBookByIdResponse" name="getBookByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addBookRequest">
+    <wsdl:part element="tns:addBookRequest" name="addBookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BooksPort">
+    <wsdl:operation name="addBook">
+      <wsdl:input message="tns:addBookRequest" name="addBookRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:addBookResponse" name="addBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBookById">
+      <wsdl:input message="tns:getBookByIdRequest" name="getBookByIdRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getBookByIdResponse" name="getBookByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BooksPortSoap11" type="tns:BooksPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBookById">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBookByIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBookByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BooksPortService">
+    <wsdl:port binding="tns:BooksPortSoap11" name="BooksPortSoap11">
+      <soap:address location="http://localhost:8080/ws/books"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

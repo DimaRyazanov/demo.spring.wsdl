@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://com.example/services/books"
+            targetNamespace="http://com.example/services/books"
+            elementFormDefault="qualified">
+
+    <xs:element name="getBookByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:bookXSD"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="title" type="xs:string" />
+                <xs:element name="price" type="xs:double" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:bookXSD" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="bookXSD">
+        <xs:sequence>
+            <xs:element name="bookId" type="xs:int" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="title" type="xs:string" />
+            <xs:element name="price" type="xs:double" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -6,7 +6,7 @@
 //
 
 
-package example.com.services.countries;
+package example.com.services.books;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the example.com.services.countries package. 
+ * generated in the example.com.services.books package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,34 +30,50 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: example.com.services.countries
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: example.com.services.books
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link GetCountryRequest }
+     * Create an instance of {@link GetBookByIdResponse }
      * 
      */
-    public GetCountryRequest createGetCountryRequest() {
-        return new GetCountryRequest();
+    public GetBookByIdResponse createGetBookByIdResponse() {
+        return new GetBookByIdResponse();
     }
 
     /**
-     * Create an instance of {@link GetCountryResponse }
+     * Create an instance of {@link BookXSD }
      * 
      */
-    public GetCountryResponse createGetCountryResponse() {
-        return new GetCountryResponse();
+    public BookXSD createBookXSD() {
+        return new BookXSD();
     }
 
     /**
-     * Create an instance of {@link Country }
+     * Create an instance of {@link AddBookResponse }
      * 
      */
-    public Country createCountry() {
-        return new Country();
+    public AddBookResponse createAddBookResponse() {
+        return new AddBookResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetBookByIdRequest }
+     * 
+     */
+    public GetBookByIdRequest createGetBookByIdRequest() {
+        return new GetBookByIdRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddBookRequest }
+     * 
+     */
+    public AddBookRequest createAddBookRequest() {
+        return new AddBookRequest();
     }
 
 }

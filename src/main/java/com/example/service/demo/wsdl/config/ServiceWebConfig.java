@@ -47,8 +47,24 @@ public class ServiceWebConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
     }
 
+    @Bean(name = "books")
+    public Wsdl11Definition booksWsdl11Definition() {
+        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+        definition.setPortTypeName("BooksPort");
+        definition.setLocationUri("/ws/books");
+        definition.setTargetNamespace("http://com.example/services/books");
+        definition.setSchema(booksSchema());
+
+        return definition;
+    }
+
     @Bean
     public XsdSchema countriesSchema() {
         return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
+    }
+
+    @Bean
+    public XsdSchema booksSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("books.xsd"));
     }
 }

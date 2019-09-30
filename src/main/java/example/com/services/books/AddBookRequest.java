@@ -6,7 +6,7 @@
 //
 
 
-package example.com.services.countries;
+package example.com.services.books;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -26,6 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,13 +38,18 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "name",
+    "title",
+    "price"
 })
-@XmlRootElement(name = "getCountryRequest")
-public class GetCountryRequest {
+@XmlRootElement(name = "addBookRequest")
+public class AddBookRequest {
 
     @XmlElement(required = true)
     protected String name;
+    @XmlElement(required = true)
+    protected String title;
+    protected double price;
 
     /**
      * Gets the value of the name property.
@@ -66,6 +73,46 @@ public class GetCountryRequest {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * Gets the value of the title property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Sets the value of the title property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTitle(String value) {
+        this.title = value;
+    }
+
+    /**
+     * Gets the value of the price property.
+     * 
+     */
+    public double getPrice() {
+        return price;
+    }
+
+    /**
+     * Sets the value of the price property.
+     * 
+     */
+    public void setPrice(double value) {
+        this.price = value;
     }
 
 }

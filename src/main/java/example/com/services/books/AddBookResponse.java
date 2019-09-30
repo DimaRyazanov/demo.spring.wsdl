@@ -6,7 +6,7 @@
 //
 
 
-package example.com.services.countries;
+package example.com.services.books;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="book" type="{http://com.example/services/books}bookXSD"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "book"
 })
-@XmlRootElement(name = "getCountryRequest")
-public class GetCountryRequest {
+@XmlRootElement(name = "addBookResponse")
+public class AddBookResponse {
 
     @XmlElement(required = true)
-    protected String name;
+    protected BookXSD book;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the book property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BookXSD }
      *     
      */
-    public String getName() {
-        return name;
+    public BookXSD getBook() {
+        return book;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the book property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BookXSD }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setBook(BookXSD value) {
+        this.book = value;
     }
 
 }
